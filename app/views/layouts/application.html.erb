@@ -7,23 +7,51 @@
     <meta charset="utf-8">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">  </head>
   </head>
-   <body>
-  <section class="section">
-    <div class="container">
-      <h1 class="title">
-        Hello World
-      </h1>
-      <p class="subtitle">
-        My first website with <strong>Bulma</strong>!
-      </p>
-    </div>
-  </section>
-  
-  <%= yield %>
+
+  <body>
+<header class="header">
+  <div class="container">
+    <nav class="level">
+      <div class="level-left">
+        <div class="title has-text-dark">
+          L/Rakugo
+        </div>
+      </div>
+        <% if user_signed_in? %>
+          <div class="level-right">
+            <span>
+              <p class="level-item">
+                <%= link_to "Manage", user_path(current_user), class: "button is-dark is-outlined", method: :show %>
+                <%= link_to "Logout", destroy_user_session_path, class: "button is-dark is-outlined", method: :delete %>
+              </p>
+            </span>
+            <%# <a class="post" href="/tweets/new">投稿する</a> %>
+          </div>
+        <% else %>
+          <div class="level-right">
+            <span>
+              <%= link_to "Login", new_user_session_path, class: "button is-dark is-outlined" %>
+              <%= link_to "SIGNUP", new_user_registration_path, class: "button is-dark is-outlined" %>
+            </span>
+          </div>
+        <% end %>
+    </nav>
+  </div>
+</header>
+
+    <%= yield %>
+
+    <footer>
+      <div class="level-right">
+        <p class="level-item">
+        Copyright L<=>Rakugo 2019.
+        </p>
+      </div>
+    </footer>
   </body>
 </html>
 
-
+</html>
