@@ -2,7 +2,7 @@
   <div class="column is-half">
     <p class="bd-notification">
 
-      <%= form_with(model: @review) do |f| %>
+      <%= form_with(model: @review, method: :post) do |f| %>
 
         <div class="field">
         <label class="label">演目</label>
