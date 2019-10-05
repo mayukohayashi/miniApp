@@ -3,17 +3,31 @@
   <div class="column is-half">
     <p class="bd-notification">
 
-      <%= form_with model: @review, local: true do |form| %>
+      <%= form_with (model: review, local: true) |f| %>
 
-        <div class="field">
-          <label class="label">Name</label>
-          <div class="control">
-            <input class="input" type="text" placeholder="Text input">
-          </div>
+        <label class="label">演目</label>
+        <%= f.text_field :title, class: 'input', placeholder: 'e.g.) 時そば、時うどん' %>
+   <%# //todo 亭号をセレクトにする？ %>
+        <label class="label">屋号</label>
+        <%= f.text_field :family_name, class: 'input', placeholder: 'e.g.) 笑福亭、三遊亭' %>
+
+        <label class="label">名前</label>
+        <%= f.text_field :first_name, class: 'input', placeholder: 'e.g.) 談志、志ん朝' %>
+
+        <label class="label">場所</label>
+        <%= f.text_field :place, class: 'input', placeholder: 'e.g.) 繁昌亭、ラジオ' %>
+
+        <label class="label">感想</label>
+        <%= f.text_area :body, class: 'textarea', placeholder: '感想をお書きください' %>
+
+        <div class="level-right">
+        <div class="actions">
+        <%= f.submit 'Send', class: 'button is-dark is-outlined' %>
+        </div>
         </div>
 
       <% end %>
-      </div>
+
 
     </p>
   </div>
