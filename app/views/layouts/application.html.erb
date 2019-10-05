@@ -13,31 +13,41 @@
 
   <body>
 <header class="header">
+<div class="columns is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd">
   <div class="container">
     <nav class="level">
       <div class="level-left">
         <div class="title has-text-dark">
+        <div class="column">
           L/Rakugo
+          </div>
         </div>
       </div>
         <% if user_signed_in? %>
           <div class="level-right">
             <span>
               <p class="level-item">
+              <div class="column">
                 <%= link_to "Manage", user_path(current_user), class: "button is-dark is-outlined", method: :show %>
                 <%= link_to "Logout", destroy_user_session_path, class: "button is-dark is-outlined", method: :delete %>
+              </div>
               </p>
             </span>
           </div>
         <% else %>
           <div class="level-right">
             <span>
-              <%= link_to "Login", new_user_session_path, class: "button is-dark is-outlined" %>
-              <%= link_to "SIGNUP", new_user_registration_path, class: "button is-dark is-outlined" %>
+              <p class="level-item">
+              <div class="column">
+                <%= link_to "Login", new_user_session_path, class: "button is-dark is-outlined" %>
+                <%= link_to "SIGNUP", new_user_registration_path, class: "button is-dark is-outlined" %>
+              </div>
+              </p>
             </span>
           </div>
         <% end %>
-    </nav>
+      </nav>
+    </div>
   </div>
 </header>
 
