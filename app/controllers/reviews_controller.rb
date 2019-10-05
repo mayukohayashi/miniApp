@@ -2,13 +2,32 @@ class ReviewsController < ApplicationController
 before_action :redirect_to_index, :except => [:index]
 
 def index
-    @reviews = Review.includes(:user).page(params[:page]).per(10).order("created_at DESC")
-  end
+  @reviews = Review.includes(:user).page(params[:page]).per(10).order("created_at DESC")
+end
 
-  
+def show
+  @review = Reviews.find(params[:id])
+end
+
+def new
+end
+
+def create
+  @review = Review.new(review_params)
+end
+
+def edit
+  @review = Review.find(id_params[:id])
+end
+
+def update
+  review = Review.find(id_params[:id])
+  review.update(review_params) if review.user_id == current_user.id
+end
+
 private
   def review_params
-    params.permit(:title, :body)
+    params.require(:review).permit(:title, :family_name, :first_name, :place, :body).merge(user_id: current_user.id)
   end
 
   def id_params
