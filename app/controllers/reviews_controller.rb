@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-before_action :redirect_to_index, :except => [:index]
+before_action :redirect_to_index, except: :index
 
 def index
   @reviews = Review.includes(:user).page(params[:page]).per(10).order("created_at DESC")
@@ -10,10 +10,12 @@ def show
 end
 
 def new
+  @review = Review.new
 end
 
 def create
-  @review = Review.new(review_params)
+  review = Review.create(create_params)
+  redirect_to_index
 end
 
 def edit
@@ -26,7 +28,7 @@ def update
 end
 
 private
-  def review_params
+  def create_params
     params.require(:review).permit(:title, :family_name, :first_name, :place, :body).merge(user_id: current_user.id)
   end
 
