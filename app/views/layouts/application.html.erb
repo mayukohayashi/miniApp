@@ -24,6 +24,9 @@
         </div>
       </div>
         <% if user_signed_in? %>
+        <div class="has-text-centered">
+          <%= link_to "POST NEW REVIEW", new_review_path, class: "button is-primary is-inverted is-outlined" %>
+        </div>
           <div class="level-right">
             <span>
               <p class="level-item">
