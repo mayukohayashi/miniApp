@@ -26,7 +26,9 @@ class ReviewsController < ApplicationController
 
   def update
     review = Review.find(id_params[:id])
-    review.update(review_params) if tweet.user_id == current_user.id
+    review.update(review_params)
+    # if tweet.user_id == current_user.id
+    redirect_to root_path
   end
 
 
