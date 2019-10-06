@@ -34,7 +34,7 @@
   <footer class="card-footer">
   <% if user_signed_in? && current_user.id == review.user_id %>
     <%= link_to 'EDIT', "/reviews/#{review.id}/edit", class: "card-footer-item", method: :get %>
-    <a href="#" class="card-footer-item">Delete</a>
+    <%= link_to 'DELETE', "/reviews/#{review.id}", class: "card-footer-item",data: {confirm: '削除してよろしいでしょうか？'}, method: :delete %>
   <% else %>
     <a href="#" class="card-footer-item is-hidden">Save</a>
     <a href="#" class="card-footer-item is-hidden">Edit</a>
