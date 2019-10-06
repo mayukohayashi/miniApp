@@ -1,0 +1,47 @@
+<div class="columns is-mobile is-centered">
+  <div class="column is-half">
+    <p class="bd-notification">
+
+        <%= form_with(model: @review, method: :post) do |f| %>
+
+
+        <div class="field">
+        <%= f.label :演目, class: 'label' %>
+        <%= f.text_field :title, class: 'input', placeholder: 'e.g.) 時そば、時うどん' %>
+        </div>
+
+        <div class="field">
+        <label class="label">屋号</label>
+        <%= f.text_field :family_name, class: 'input', placeholder: 'e.g.) 笑福亭、三遊亭' %>
+        </div>
+
+        <div class="field">
+        <label class="label">名前</label>
+        <%= f.text_field :first_name, class: 'input', placeholder: 'e.g.) 談志、志ん朝' %>
+        </div>
+
+        <div class="field">
+        <label class="label">場所</label>
+        <%= f.text_field :place, class: 'input', placeholder: 'e.g.) 繁昌亭、ラジオ' %>
+        </div>
+
+        <div class="field">
+        <label class="label">感想</label>
+        <%= f.text_area :body, class: 'textarea', placeholder: '感想をお書きください' %>
+        </div>
+
+        <div class="field">
+        <div class="level-right">
+        <div class="actions">
+        <%= f.submit 'Submit', class: "button is-dark is-outlined" %>
+          </div>
+          </div>
+          </div>
+      <% end %>
+
+
+
+
+    </p>
+  </div>
+</div>

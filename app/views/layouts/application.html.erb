@@ -5,53 +5,58 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">  </head>
-  </head>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    </head>
+
 
   <body>
-<header class="header">
-  <div class="container">
-    <nav class="level">
-      <div class="level-left">
-        <div class="title has-text-dark">
-          L/Rakugo
+    <nav class="navbar is-fixed-top">
+      <div class="container">
+        <div class="navbar-brand">
+        <%= link_to "L/Rakugo", root_path, class: "navbar-item is-black", style: "font-weight:bold;" %>
+          <span class="navbar-burger burger" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
         </div>
-      </div>
         <% if user_signed_in? %>
-          <div class="level-right">
-            <span>
-              <p class="level-item">
-                <%= link_to "Manage", user_path(current_user), class: "button is-dark is-outlined", method: :show %>
-                <%= link_to "Logout", destroy_user_session_path, class: "button is-dark is-outlined", method: :delete %>
-              </p>
-            </span>
-            <%# <a class="post" href="/tweets/new">投稿する</a> %>
+        <div class="container">
+        <div id="navMenu" class="navbar-menu">
+          <div class="navbar-end">
+            <%= link_to "POST NEW REVIEW", new_review_path, class: "button is-small is-black is-outlined" %>
+            <%= link_to "Manage", user_path(current_user), class: "button is-small is-dark is-outlined", method: :show %>
+            <%= link_to "Logout", destroy_user_session_path, class: "button is-small is-dark is-outlined", method: :delete %>
           </div>
+        </div>
+        </div>
         <% else %>
-          <div class="level-right">
-            <span>
-              <%= link_to "Login", new_user_session_path, class: "button is-dark is-outlined" %>
-              <%= link_to "SIGNUP", new_user_registration_path, class: "button is-dark is-outlined" %>
-            </span>
+        <div class="container">
+        <div id="navMenu" class="navbar-menu">
+          <div class="navbar-end">
+            <%= link_to "Login", new_user_session_path, class: "button is-small is-dark is-outlined" %>
+            <%= link_to "SIGNUP", new_user_registration_path, class: "button is-small is-dark is-outlined" %>
           </div>
-        <% end %>
-    </nav>
-  </div>
-</header>
-
-    <%= yield %>
-
-    <footer>
-      <div class="level-right">
-        <p class="level-item">
-        Copyright L<=>Rakugo 2019.
-        </p>
+        </div>
+        </div>
+      <% end %>
       </div>
-    </footer>
+    </nav>
+    <script type="text/javascript">
+      (function() {
+        var burger = document.querySelector('.burger');
+        var nav = document.querySelector('#'+burger.dataset.target);
+        burger.addEventListener('click', function(){
+          burger.classList.toggle('is-active');
+          nav.classList.toggle('is-active');
+        });
+      })();
+    </script>
+    <%= yield %>
   </body>
-</html>
-
 </html>

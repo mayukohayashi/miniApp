@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @nickname = user.name
+    # @nickname = user.name
     @reviews = user.reviews.page(params[:page]).per(5).order('created_at DESC')
   end
 

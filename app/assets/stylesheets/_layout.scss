@@ -1,15 +1,25 @@
 body {
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  height:100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  margin-top: 120px;
+  margin-left: 40px;
+  margin-right: 40px;
 }
-.header {
-  background-color: $turquoise;
-  color: $green-invert;
-  padding:2rem 1.5rem;
+.navbar {
+  background-color: #66CCC0;
+  // color: $green-invert;
 }
 .section {
   display:flex;
   flex:1 0 auto;
+}
+
+.div {
+  font-family: sans-serif;
+}
+
+.container {
+  padding:1rem 1rem;
 }
