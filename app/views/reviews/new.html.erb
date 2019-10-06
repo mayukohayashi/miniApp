@@ -2,7 +2,7 @@
   <div class="column is-half">
     <p class="bd-notification">
 
-        <%= form_for(@review, url: '/reviews') do |f| %>
+        <%= form_with(model: @review, method: :post) do |f| %>
 
 
         <div class="field">
@@ -33,9 +33,7 @@
         <div class="field">
         <div class="level-right">
         <div class="actions">
-              <%= button_tag type: "submit", class: "button is-dark is-outlined" do %>
-                Submit<% end %>
-
+        <%= f.submit 'Submit', class: "button is-dark is-outlined" %>
           </div>
           </div>
           </div>

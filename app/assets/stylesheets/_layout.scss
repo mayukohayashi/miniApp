@@ -3,11 +3,13 @@ body {
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
+  margin-top: 100px;
+  margin-left: 40px;
+  margin-right: 40px;
 }
-.header {
+.navbar {
   background-color: #66CCC0;
-  color: $green-invert;
-  padding:2rem 1.5rem;
+  // color: $green-invert;
 }
 .section {
   display:flex;
@@ -16,4 +18,8 @@ body {
 
 .div {
   font-family: sans-serif;
+}
+
+.container {
+  padding:1rem 1rem;
 }
