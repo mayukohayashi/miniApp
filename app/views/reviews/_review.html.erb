@@ -2,30 +2,38 @@
 <div class="card">
   <header class="card-header">
     <p class="card-header-title">
-      Component
+      <%= review.title%>
     </p>
   </header>
-  <%# end ofheader %>
   <div class="card-content">
+    <div class="content has-text-weight-bold">
+      <%= review.family_name %> <%= review.first_name %>
+    </div>
+    <br>
     <div class="content">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-      <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
+      <%= review.place %>
+    </div>
+    <br>
+    <div class="content">
+      <%= review.body %>
       <br>
-      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
     </div>
-    <div class="content">
-    mmm
-    </div>
+
+
     <div class="level-right">
       <div class="content has-text-info">
         <%= review.user.name %>
       </div>
     </div>
+    <div class="level-right">
+      <div class="content is-size-7 has-text-grey ">
+        <%= review.created_at.strftime("%Y/%m/%d (%A) %H:%M") %>
+      </div>
+    </div>
   </div>
   <footer class="card-footer">
   <% if user_signed_in? && current_user.id == review.user_id %>
-    <a href="#" class="card-footer-item">Save</a>
-    <a href="#" class="card-footer-item">Edit</a>
+    <%= link_to 'EDIT', "/reviews/#{review.id}/edit", class: "card-footer-item", method: :get %>
     <a href="#" class="card-footer-item">Delete</a>
   <% else %>
     <a href="#" class="card-footer-item is-hidden">Save</a>
