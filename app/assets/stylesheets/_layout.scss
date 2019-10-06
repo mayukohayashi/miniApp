@@ -6,10 +6,11 @@ body {
   margin-top: 120px;
   margin-left: 40px;
   margin-right: 40px;
+  margin-bottom: 100px;
 }
 .navbar {
-  background-color: #66CCC0;
-  // color: $green-invert;
+  background-color: #50B040 ;
+  color: $green-invert;
 }
 .section {
   display:flex;
@@ -22,4 +23,13 @@ body {
 
 .container {
   padding:1rem 1rem;
+}
+
+.card {
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+
+.card-header {
+  background-color: #4090B0  ;
 }

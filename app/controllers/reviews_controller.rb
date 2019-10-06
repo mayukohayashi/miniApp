@@ -15,7 +15,9 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    review.destroy if review.user_id == current_user.id
+    @review = current_user.reviews.find(params[:id])
+    @review.destroy
+    redirect_to root_path
   end
 
   def edit
