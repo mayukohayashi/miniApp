@@ -9,15 +9,12 @@
     <div class="content has-text-weight-bold">
       <%= review.family_name %> <%= review.first_name %>
     </div>
-    <br>
     <div class="content">
       <%= review.place %>
     </div>
-    <br>
     <div class="content">
     <div class="box">
-      <%= review.body %>
-      <br>
+      <%= simple_format(review.body) %>
     </div>
     </div>
 
