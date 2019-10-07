@@ -4,7 +4,7 @@ body {
   justify-content: space-between;
 }
 .navbar {
-  background-color: #50B040 ;
+  background-color: rgb(112, 182, 100) ;
   color: $green-invert;
 }
 .section {
@@ -23,8 +23,15 @@ body {
 .card {
   table-layout: fixed;
   word-wrap: break-word;
-  background: image-url("washi.png");
+  background: image-url("gold_scale.png");
 }
+
+
+.orgb {
+  height: 100%;
+  background: rgba(255,255,255,0.5);
+}
+
 
 .card-header {
   background-color: #4090B0  ;
