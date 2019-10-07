@@ -2,11 +2,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
-  margin-top: 120px;
-  margin-left: 40px;
-  margin-right: 40px;
-  margin-bottom: 100px;
 }
 .navbar {
   background-color: #50B040 ;
@@ -28,8 +23,18 @@ body {
 .card {
   table-layout: fixed;
   word-wrap: break-word;
+  background: image-url("washi.png");
 }
 
 .card-header {
   background-color: #4090B0  ;
 }
+
+.background {
+  height: 100vh;
+  margin-top: 120px;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-bottom: 100px;
+}
+
