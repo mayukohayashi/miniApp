@@ -69,6 +69,6 @@ gem "devise"
 gem "kaminari"
 
 # Provides a better error page for Rails and other Rack apps. Includes source code inspection, a live REPL and local/instance variable inspection for all stack frames.
-gem 'better_errors', '~> 2.5', '>= 2.5.1'
+gem 'better_errors', '~> 2.8'
 
 gem 'simple_form'
